@@ -63,8 +63,7 @@ class GradientDescentAlgorithmTest(unittest.TestCase):
         self.assertAlmostEqual(self.algo.get_derivative_values([local_minima])[0], 0, places=2)
 
     def tearDown(self):
-        print "GGradient Descent Algorithm Test: tearDown: begin"
-
+        print "Gradient Descent Algorithm Test: tearDown: begin"
 
 if __name__ == '__main__':
     main()

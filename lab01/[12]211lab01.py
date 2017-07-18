@@ -31,6 +31,6 @@ class SnCalculater:
         return self.output
 
 
-calc = SnCalculater('labExercise01.csv')
+calc = SnCalculater('dataset/labExercise01.csv')
 ans = calc.getSn()
 print ans
