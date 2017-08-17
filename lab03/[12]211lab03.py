@@ -49,12 +49,16 @@ class Statistics:
 
 def main():
     data = pd.read_csv('dataset/lab03Exercise.csv',names=(0,1,2,3,4))
+    for i in range(0,data.shape[1]):
+        data[i] = data[i].fillna(data[i].mean())
+
     statistics = Statistics()
     ds1 = statistics.get_covariance_matrix(data)
     ds2 = statistics.get_correlation_matrix(data)
 
+    print "---------------covariance_matrix--------------------"
     print ds1
-    print "----------------------------------------------------"
+    print "---------------correlation_matrix-------------------"
     print ds2
     print "----------------------------------------------------"
 
@@ -97,4 +101,21 @@ class StatisticsTest(unittest.TestCase):
 if __name__ == '__main__':
     main()
     unittest.main()
+
+
+
+# 2. Considering the results I obtained for the exercice, I can say most of the columns are more correlated to each other except last data column.
+#    Correlation between same data column is 1. Last data column(5th) shows a high correlation only with 4th data column. Correlation
+#    between other columns with last column is somewhat low but not too bad. Considering all the aspects I can say there is good
+#    correlation between all of these data columns.
+
+
+# 3. There is a good meaning if we use correlation to derive class value instead of using mean.
+#
+#    eg: if( cor1,5  <  (cor2,3 + cor3,4 + cor2,4)/3) then
+#           value <- 1
+#        else
+#           value <- 0
+#        end if
+
 
